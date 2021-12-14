@@ -1,9 +1,9 @@
 terraform {
-  backend "s3" {
-    region = "ap-northeast-2"
-    bucket = "test-cluster-state"
-    key = "test-cluster.tfstate"
-  }
+  # backend "s3" {
+  #   region = "ap-northeast-2"
+  #   bucket = "bob-cluster-state"
+  #   key = "bob-cluster.tfstate"
+  # }
 
   required_providers {
     aws = {

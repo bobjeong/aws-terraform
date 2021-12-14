@@ -11,7 +11,12 @@ variable "azs" {
 variable "prefix_name" {
   description = "All Resource Prefix Name"
   type        = string
-  default     = ""
+  default     = "bob-cluster"
+}
+
+variable "suffix" {
+  description = "Name of the cluster, e.g: EKS"
+  default = "eks"
 }
 
 variable "key_name" {

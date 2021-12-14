@@ -1,0 +1,1 @@
+# kubecofig output path.

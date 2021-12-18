@@ -8,18 +8,19 @@ variable "azs" {
   default = []
 }
 
-variable "prefix_name" {
-  description = "All Resource Prefix Name"
+variable "cluster_id" {
+  description = "Cluster Id"
+  type = string
+  default = "-1"
+}
+
+variable "stage_tag" {
+  description = "Global Env Tag"
   type        = string
-  default     = "bob-cluster"
+  default     = "dev"
 }
 
-variable "suffix" {
-  description = "Name of the cluster, e.g: EKS"
-  default = "eks"
-}
-
-variable "key_name" {
+variable "common_key_pair_name" {
   description = "eks worker key name"
   default = ""
 }
@@ -51,13 +52,13 @@ variable "subnet_cidr" {
 variable "enable_nat_gateway" {
   description = "Should be true if you want to provision NAT Gateways for each of your private networks"
   type = bool
-  default = false
+  default = true
 }
 
 variable "single_nat_gateway" {
   description = "Should be true if you want to provision a single shared NAT Gateway across all of your private networks"
   type = bool
-  default = false
+  default = true
 }
 
 # Bastion
@@ -113,14 +114,13 @@ variable "cluster_name" {
   default     = ""
 }
 
-
 variable "cluster_version" {
   description = "Kubernetes minor version to use for the EKS cluster (default 1.21)."
   type        = string
   default     = "1.21"
 }
 
-variable "kubeconfig_output_path" {
+variable "config_output_path" {
   description = "Where to save the Kubectl config file. Assumed to be a directory if the value ends with a forward slash `/`."
   type        = string
   default     = "."
@@ -192,24 +192,5 @@ variable "efs_name" {
 variable "ecr_name" {
   description = "ECR Namr"
   default = ""
-}
-
-# Tag
-variable "cluster_id" {
-  description = "Cluster Id"
-  type = string
-  default = "-1"
-}
-
-variable "default_tag" {
-  description = "All Resource Default Tag Name"
-  type = string
-  default = "eks"
-}
-
-variable "stage_tag" {
-  description = "Global Env Tag"
-  type        = string
-  default     = "dev"
 }
 

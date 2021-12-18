@@ -11,10 +11,10 @@ module "eks" {
   cluster_name           = local.cluster_name
   cluster_version        = var.cluster_version
   subnets                = module.vpc.private_subnets
-  kubeconfig_output_path = var.kubeconfig_output_path
+  kubeconfig_output_path = var.config_output_path
 
   workers_group_defaults = {
-    key_name = var.key_name
+    key_name = var.common_key_pair_name
 
     tags = [
       {
@@ -48,7 +48,7 @@ module "eks" {
   worker_groups_launch_template = [
     {
       name = "${local.cluster_name}-mixed"
-      key_name = var.key_name
+      key_name = var.common_key_pair_name
 
       override_instance_types = var.asg_instance_types
       asg_desired_capacity    = var.asg_desired_capacity

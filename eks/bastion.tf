@@ -4,7 +4,7 @@ module "ec2_bastion" {
   name                   = var.bastion_instance_name
   ami                    = var.bastion_ami
   instance_type          = var.bastion_instance_type
-  key_name               = var.key_name
+  key_name               = var.common_key_pair_name
   monitoring             = true
   vpc_security_group_ids = [module.security_group_bastion.security_group_id]
   subnet_id              = "${element(module.vpc.public_subnets, 0)}"

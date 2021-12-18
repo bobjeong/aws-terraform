@@ -4,10 +4,10 @@ locals {
   # default_record = "*.${var.origin}" Route53
 
   # set resource name
-  cluster_name = var.cluster_name != "" ? var.cluster_name : lower("${var.prefix_name}-${var.suffix}")
-  bastion_name = var.bastion_instance_name != "" ? var.bastion_instance_name : lower("${var.prefix_name}-bastion")
-  vpc_name     = var.vpc_name != "" ? var.vpc_name : lower("${var.prefix_name}-vpc")
-  alb_name     = var.alb_name != "" ? var.alb_name : lower("${var.prefix_name}-alb")
-  efs_name     = var.efs_name != "" ? var.efs_name : lower("${var.prefix_name}-efs")
-  ecr_name     = var.ecr_name != "" ? var.ecr_name : lower("${var.prefix_name}-ecr")
+  cluster_name = var.cluster_name != "" ? var.cluster_name : lower("${var.cluster_id}-cluster")
+  bastion_name = var.bastion_instance_name != "" ? var.bastion_instance_name : lower("${var.cluster_id}-bastion")
+  vpc_name     = var.vpc_name != "" ? var.vpc_name : lower("${var.cluster_id}-vpc")
+  alb_name     = var.alb_name != "" ? var.alb_name : lower("${var.cluster_id}-alb")
+  efs_name     = var.efs_name != "" ? var.efs_name : lower("${var.cluster_id}-efs")
+  ecr_name     = var.ecr_name != "" ? var.ecr_name : lower("${var.cluster_id}-ecr")
 }

@@ -1,5 +1,5 @@
 module "security_group_bastion" {
-  source = "./common/terraform-aws-security-group"
+  source = "terraform-aws-modules/security-group/aws"
   vpc_id = aws_vpc.tier_vpc.id
   name   = "${local.bastion_name}-sg"
   description = "Security group for Bastion"
@@ -13,7 +13,7 @@ module "security_group_bastion" {
 }
 
 module "security_group_web" {
-  source = "./common/terraform-aws-security-group"
+  source = "terraform-aws-modules/security-group/aws"
   vpc_id = aws_vpc.tier_vpc.id
   name   = "${local.web_name}-sg"
   description = "Security group for Web"
@@ -44,7 +44,7 @@ module "security_group_was" {
 
 
 module "security_group_web_alb" {
-  source = "./common/terraform-aws-security-group"
+  source = "terraform-aws-modules/security-group/aws"
   vpc_id = aws_vpc.tier_vpc.id
   name   = "${local.web_alb}-sg"
   description = "Security group for WEB ALB"
@@ -58,7 +58,7 @@ module "security_group_web_alb" {
 }
 
 module "security_group_was_alb" {
-  source = "./common/terraform-aws-security-group"
+  source = "terraform-aws-modules/security-group/aws"
   vpc_id = aws_vpc.tier_vpc.id
   name   = "${local.was_alb}-sg"
   description = "Security group for WAS ALB"
@@ -72,7 +72,7 @@ module "security_group_was_alb" {
 }
 
 module "security_group_rds" {
-  source = "./common/terraform-aws-security-group"
+  source = "terraform-aws-modules/security-group/aws"
   vpc_id = aws_vpc.tier_vpc.id
   name   = "${local.db_name}-sg"
   description = "Security group for RDS"

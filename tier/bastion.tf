@@ -1,5 +1,5 @@
 module "ec2_bastion" {
-  source  = "./common/terraform-aws-ec2-instance"
+  source  = "terraform-aws-modules/ec2-instance/aws"
 
   name                   = local.bastion_name
   ami                    = data.aws_ami.amazon_linux2.id

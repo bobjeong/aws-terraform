@@ -39,7 +39,7 @@ module "records" {
 }
 
 //module "acm" {
-//  source = "./common/terraform-aws-acm"
+//  source = "terraform-aws-modules/acm/aws"
 //  domain_name = "*.${var.cluster_name}.${var.root_domain}"
 //  subject_alternative_names = ["${var.cluster_name}.${var.root_domain}"]
 //  zone_id =  keys(module.zones.route53_zone_name)[0]

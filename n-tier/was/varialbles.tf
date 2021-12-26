@@ -15,41 +15,50 @@ variable "cluster_name" {
   default     = null
 }
 
+variable "create" {
+  description = "Was Create"
+  type        = bool
+  default     = true
+}
+
 # WEB
-variable "web_name" {
+variable "was_name" {
   description = "EC2 Web Server Instance Type"
+  type        = string
   default     = null
 }
 
-variable "web_instance_type" {
+variable "was_instance_type" {
   description = "EC2 Web Server Instance Type"
+  type        = string
   default     = null
 }
 
-variable "web_instance_ami" {
+variable "was_instance_ami" {
   description = "EC2 Web Server Instance Ami Type"
+  type        = string
   default     = null
 }
 
-variable "web_desired_capacity" {
+variable "was_desired_capacity" {
   description = "WEB Auto Scaling Group Desired Capacity"
   type        = number
   default     = 2
 }
 
-variable "web_min_size" {
+variable "was_min_size" {
   description = "WEB Auto Scaling Group Min Size"
   type        = number
   default     = 2
 }
 
-variable "web_max_size" {
+variable "was_max_size" {
   description = "WEB Auto Scaling Group Max Size"
   type        = number
   default     = 4
 }
 
-variable "web_alb_name" {
+variable "was_alb_name" {
   description = "WEB ALB Name"
   type        = string
   default     = null
@@ -73,19 +82,19 @@ variable "subnet_id" {
   default     = null
 }
 
-variable "web_ingress_rule" {
+variable "was_ingress_rule" {
   description = "Web Instance Security Group Ingress Rule"
   type        = list(string)
   default     = null
 }
 
-variable "web_egress_rule" {
+variable "was_egress_rule" {
   description = "Web Instance Security Group Egress Rule"
   type        = list(string)
   default     = null
 }
 
-variable "web_ingress_cidr_blocks" {
+variable "was_ingress_cidr_blocks" {
   description = "Web Instance Security Group Ingress Cidr Blocks"
   type        = list(string)
   default     = null
@@ -101,4 +110,10 @@ variable "instance_subnet_ids" {
   description = "List of IDs of subnets"
   type        = list(string)
   default     = null
+}
+
+variable "is_internal" {
+  description = "Is Internal ALB"
+  type        = bool
+  default     = true
 }

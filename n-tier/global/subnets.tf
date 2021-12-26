@@ -12,6 +12,7 @@ resource "aws_subnet" "public" {
 
   tags = {
     Name = "${local.public_subnet_name}-${count.index+1}"
+    Type = "public"
   }
 }
 
@@ -24,5 +25,6 @@ resource "aws_subnet" "private" {
 
   tags = {
     Name = "${local.private_subnet_name}-${count.index+1}"
+    Type = "private"
   }
 }

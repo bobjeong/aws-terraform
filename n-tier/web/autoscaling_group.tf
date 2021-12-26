@@ -20,7 +20,7 @@ resource "aws_autoscaling_group" "web_autoscaling_group" {
 
   name                 = local.web_autoscaling_group_name
   launch_configuration = aws_launch_configuration.web_launch_configuration[count.index].name
-  vpc_zone_identifier  = var.subnets
+  vpc_zone_identifier  = var.instance_subnet_ids
   force_delete         = true
 
   desired_capacity   = var.web_desired_capacity
